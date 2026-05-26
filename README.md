@@ -1,91 +1,75 @@
-![The Buf logo](https://raw.githubusercontent.com/bufbuild/protovalidate/main/.github/buf-logo.svg)
+[update-readmes]   Mode: rewrite — migrating to template structure...
+# protovalidate
 
-# Protovalidate
+[![Built with Ona](https://ona.com/build-with-ona.svg)](https://app.ona.com/#https://github.com/Interested-Deving-1896/protovalidate)
 
-[![CI](https://github.com/bufbuild/protovalidate/actions/workflows/ci.yaml/badge.svg?branch=main)][ci]
-[![Slack](https://img.shields.io/badge/Slack-Buf-%23e01563)][slack]
-[![BSR](https://img.shields.io/badge/BSR-Module-0C65EC)][buf-mod]
+<!-- AI:start:what-it-does -->
+_Description pending._
+<!-- AI:end:what-it-does -->
 
-[Protovalidate][protovalidate] is the semantic validation library for Protobuf. It provides standard annotations to validate common rules on messages and fields, as well as the ability to use [CEL][cel] to write custom rules. It's the next generation of [protoc-gen-validate][protoc-gen-validate].
+## Architecture
 
-With Protovalidate, you can annotate your Protobuf messages with both standard and custom validation rules:
+<!-- AI:start:architecture -->
+_Architecture documentation pending._
+<!-- AI:end:architecture -->
 
-```protobuf
-syntax = "proto3";
+## Install
 
-package acme.user.v1;
+<!-- Add installation instructions here. This section is yours — the AI will not modify it. -->
 
-import "buf/validate/validate.proto";
-
-message User {
-  string id = 1 [(buf.validate.field).string.uuid = true];
-  uint32 age = 2 [(buf.validate.field).uint32.lte = 150]; // We can only hope.
-  string email = 3 [(buf.validate.field).string.email = true];
-  string first_name = 4 [(buf.validate.field).string.max_len = 64];
-  string last_name = 5 [(buf.validate.field).string.max_len = 64];
-
-  option (buf.validate.message).cel = {
-    id: "first_name_requires_last_name"
-    message: "last_name must be present if first_name is present"
-    expression: "!has(this.first_name) || has(this.last_name)"
-  };
-}
+```bash
+git clone https://github.com/Interested-Deving-1896/protovalidate.git
+cd protovalidate
 ```
 
-## Supported languages
+## Usage
 
-To start using Protovalidate in your projects, see the [developer quickstart][quickstart], [Protovalidate overview][protovalidate-overview], or go directly to the repository for your language of choice:
+<!-- Add usage examples here. This section is yours — the AI will not modify it. -->
 
-- [`protovalidate-go`][pv-go] (Go)
-- [`protovalidate-java`][pv-java] (Java)
-- [`protovalidate-python`][pv-python] (Python)
-- [`protovalidate-cc`][pv-cc] (C++)
-- [`protovalidate-es`][pv-es] (TypeScript and JavaScript)
+## Configuration
 
-## Documentation
+<!-- Document configuration options here. This section is yours — the AI will not modify it. -->
 
-Comprehensive documentation for Protovalidate is available at [protovalidate.com][protovalidate].
+## CI
 
-Highlights include:
+<!-- AI:start:ci -->
+_CI documentation pending._
+<!-- AI:end:ci -->
 
-* The [developer quickstart][quickstart]
-* Comprehensive RPC quickstarts for [Connect and Go][connect-go], [gRPC and Go][grpc-go], [gRPC and Java][grpc-java], and [gRPC and Python][grpc-python]
-* A [migration guide for protoc-gen-validate][migration-guide] users
+## Mirror chain
 
-## Contributing
+<!-- AI:start:mirror-chain -->
+This repo is maintained in [`Interested-Deving-1896/protovalidate`](https://github.com/Interested-Deving-1896/protovalidate) and mirrored through:
 
-We genuinely appreciate any help! If you'd like to contribute, check out these resources:
+```
+Interested-Deving-1896/protovalidate  ──►  OpenOS-Project-OSP/protovalidate  ──►  OpenOS-Project-Ecosystem-OOC/protovalidate
+```
 
-- [Contributing Guidelines][contributing]: Guidelines to make your contribution process straightforward and meaningful
-- [Conformance testing utilities](https://github.com/bufbuild/protovalidate/tree/main/docs/conformance.md): Utilities providing acceptance testing of `protovalidate` implementations
+Changes flow downstream automatically via the hourly mirror chain in
+[`fork-sync-all`](https://github.com/Interested-Deving-1896/fork-sync-all).
+Direct commits to OSP or OOC are detected and opened as PRs back to `Interested-Deving-1896`.
+<!-- AI:end:mirror-chain -->
 
-## Legal
+## Contributors
 
-Offered under the [Apache 2 license][license].
+<!-- AI:start:contributors -->
+_Contributors pending._
+<!-- AI:end:contributors -->
 
-[buf]: https://buf.build
-[cel]: https://cel.dev
+## Origins
 
-[pv-go]: https://github.com/bufbuild/protovalidate-go
-[pv-java]: https://github.com/bufbuild/protovalidate-java
-[pv-python]: https://github.com/bufbuild/protovalidate-python
-[pv-cc]: https://github.com/bufbuild/protovalidate-cc
-[pv-es]: https://github.com/bufbuild/protovalidate-es
+<!-- AI:start:origins -->
+_Original project — no upstream fork._
+<!-- AI:end:origins -->
 
-[buf-mod]: https://buf.build/bufbuild/protovalidate
-[slack]: https://buf.build/links/slack
-[license]: LICENSE
-[contributing]: .github/CONTRIBUTING.md
+## Resources
 
-[protoc-gen-validate]: https://github.com/bufbuild/protoc-gen-validate
-[conformance]: https://github.com/bufbuild/protovalidate/blob/main/docs/conformance.md
-[ci]: https://github.com/bufbuild/protovalidate/actions/workflows/ci.yaml
+<!-- AI:start:resources -->
+_No additional resource files found._
+<!-- AI:end:resources -->
 
-[protovalidate]: https://protovalidate.com/
-[protovalidate-overview]: https://protovalidate.com/about/
-[quickstart]: https://protovalidate.com/quickstart/
-[connect-go]: https://protovalidate.com/quickstart/connect-go/
-[grpc-go]: https://protovalidate.com/quickstart/grpc-go/
-[grpc-java]: https://protovalidate.com/quickstart/grpc-java/
-[grpc-python]: https://protovalidate.com/quickstart/grpc-python/
-[migration-guide]: https://protovalidate.com/migration-guides/migrate-from-protoc-gen-validate/
+## License
+
+<!-- AI:start:license -->
+[Apache-2.0](https://github.com/Interested-Deving-1896/protovalidate/blob/main/LICENSE) © 2026 [Interested-Deving-1896](https://github.com/Interested-Deving-1896)
+<!-- AI:end:license -->
